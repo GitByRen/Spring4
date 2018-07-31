@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 通过反射的方式在IOC容器中创建Bean,所以要求Bean中必须有无参构造器  -->
+	<bean id="helloWorld" class="com.important.beans.HelloWorld">
+		<property name="name" value="spring"></property>
+	</bean>	
+
+
+	<!-- 使用构造器注入属性值可以指定参数的位置和参数的类型!以区分重载的构造器! -->
+	<bean id="car" class="com.important.beans.Car">
+		<constructor-arg value="Audi" index="0"></constructor-arg>
+		<!-- 如果包含特殊字符可以使用<![CDATA[]]>包裹起来 -->
+		<constructor-arg index="1">
+			<value><![CDATA[<ShangHai^>]]></value>
+		</constructor-arg>
+		<constructor-arg value="30000" type="double"></constructor-arg>
+	</bean>
+	
+	<bean id="car1" class="com.important.beans.Car">
+		<constructor-arg value="Audi" type="java.lang.String"></constructor-arg>
+		<constructor-arg value="Shanghai" type="java.lang.String"></constructor-arg>
+		<constructor-arg value="30000" type="int"></constructor-arg>
+	</bean>
+
+
+	<!-- 可以使用ref属性建立bean之间的引用关系. -->
+	<bean id="person" class="com.important.beans.Person">
+		<property name="name" value="Tom"></property>
+		<property name="age" value="24"></property>
+		<property name="car" ref="car1"></property>
+		<!-- 内部bean -->
+		<!-- <property name="car">
+			<bean id="car2" class="com.important.beans.Car">
+				<constructor-arg value="Ford" type="java.lang.String"></constructor-arg>
+				<constructor-arg value="Changan" type="java.lang.String"></constructor-arg>
+				<constructor-arg value="30000" type="int"></constructor-arg>
+			</bean>
+		</property> -->
+	</bean>
+
+	<!-- 为级联属性赋值 -->
+	<bean id="person1" class="com.important.beans.Person">
+		<constructor-arg name="name" value="zhangsan"></constructor-arg>
+		<constructor-arg name="age" value="20"></constructor-arg>
+		<!-- 必须先初始化后才可以为级联属性赋值,否则会有异常 -->
+		<constructor-arg ref="car"></constructor-arg>
+		<property name="car.age" value="150"></property>
+	</bean>
+</beans>
