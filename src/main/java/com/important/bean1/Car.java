@@ -1,4 +1,4 @@
-package com.important.beans;
+package com.important.bean1;
 
 public class Car {
 
@@ -24,7 +24,7 @@ public class Car {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Car [name=" + name + ", local=" + local + ", price=" + price + ", age=" + age + "]";

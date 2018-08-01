@@ -1,4 +1,4 @@
-package com.important.beans;
+package com.important.bean1;
 
 public class HelloWorld {
 
