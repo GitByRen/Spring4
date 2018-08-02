@@ -9,6 +9,7 @@
 
 	<properties>
 		<springframework.context>4.3.18.RELEASE</springframework.context>
+		<com.important.c3p0>0.9.5.2</com.important.c3p0>
 	</properties>
 
 	<dependencies>
@@ -17,6 +18,11 @@
 			<artifactId>spring-context</artifactId>
 			<version>${springframework.context}</version>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${com.important.c3p0}</version>
 		</dependency>
 	</dependencies>
 </project>

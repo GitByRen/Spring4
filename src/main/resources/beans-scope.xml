@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		singleton:默认值，容器初始化时创建bean实例，在整个容器的生命周期内只创建这一个bean,单例
+		prototype:原型的，在每次请求时都创建新的bean实例
+	-->
+	<bean id="car" class="com.important.autowire.Car" scope="prototype">
+		<property name="brand" value="Audi"></property>
+		<property name="price" value="3000"></property>
+	</bean>
+
+</beans>

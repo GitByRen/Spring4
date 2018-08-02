@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="car" class="com.important.cycle.Car" init-method="init"
+		destroy-method="destroy">
+		<property name="brand" value="Audi"></property>
+	</bean>
+
+	<!-- 
+		postProcessBeforeInitialization:init-method之前被调用
+		postProcessAfterInitialization:init-method之后被调用
+	 -->
+	<bean class="com.important.cycle.MyBeanPostProcessor"></bean>
+	
+</beans>

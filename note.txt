@@ -1,0 +1,8 @@
+1.属性注入和构造器注入
+2.bean之间的引用关系，集合，Map，Properties的配置
+3.自动注入
+4.bean之间的关系：继承，抽象，依赖
+5.bean的作用域，singleTon和prototype
+6.使用外部属性文件
+7.SPEL:#{}
+8.Bean的声明周期
