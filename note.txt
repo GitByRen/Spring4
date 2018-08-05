@@ -5,4 +5,7 @@
 5.bean的作用域，singleTon和prototype
 6.使用外部属性文件
 7.SPEL:#{}
-8.Bean的声明周期
+8.Bean的生命周期
+9.工厂方法配置Bean
+10.FactoryBean配置Bean
+11.基于注解配置Bean
