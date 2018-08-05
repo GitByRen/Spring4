@@ -9,3 +9,4 @@
 9.工厂方法配置Bean
 10.FactoryBean配置Bean
 11.基于注解配置Bean
+12.AOP(基于注解，配置文件)

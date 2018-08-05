@@ -1,8 +1,6 @@
 package com.important.annotation;
 
-import org.springframework.stereotype.Component;
-
-@Component
+//@Component
 public class TestObject {
 
 	

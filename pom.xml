@@ -10,6 +10,8 @@
 	<properties>
 		<springframework.context>4.3.18.RELEASE</springframework.context>
 		<com.important.c3p0>0.9.5.2</com.important.c3p0>
+		<com.important.aspectj>1.9.1</com.important.aspectj>
+		<com.important.aspects>4.3.18.RELEASE</com.important.aspects>
 	</properties>
 
 	<dependencies>
@@ -24,5 +26,16 @@
 			<artifactId>c3p0</artifactId>
 			<version>${com.important.c3p0}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${com.important.aspectj}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${com.important.aspects}</version>
+		</dependency>
+
 	</dependencies>
 </project>

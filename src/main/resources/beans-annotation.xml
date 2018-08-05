@@ -27,5 +27,6 @@
 		</context:component-scan>
 	 -->
 	 
+	 <context:component-scan base-package="com.important.annotation"></context:component-scan>
 	 
 </beans>
