@@ -12,6 +12,8 @@
 		<com.important.c3p0>0.9.5.2</com.important.c3p0>
 		<com.important.aspectj>1.9.1</com.important.aspectj>
 		<com.important.aspects>4.3.18.RELEASE</com.important.aspects>
+		<com.important.springjdbc>4.3.18.RELEASE</com.important.springjdbc>
+		<com.important.mysql>5.1.46</com.important.mysql>
 	</properties>
 
 	<dependencies>
@@ -26,6 +28,16 @@
 			<artifactId>c3p0</artifactId>
 			<version>${com.important.c3p0}</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${com.important.springjdbc}</version>
+		</dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${com.important.mysql}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
