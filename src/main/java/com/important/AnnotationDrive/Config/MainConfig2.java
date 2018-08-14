@@ -3,14 +3,21 @@ package com.important.AnnotationDrive.Config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
-import com.important.AnnotationDrive.Configuration.Person;
+import com.important.AnnotationDrive.bean.Color;
+import com.important.AnnotationDrive.bean.ColorFactoryBean;
+import com.important.AnnotationDrive.bean.Person;
+import com.important.AnnotationDrive.bean.Red;
 import com.important.AnnotationDrive.condition.LinuxCondition;
+import com.important.AnnotationDrive.condition.MyImportBeanDefinitionRegistrar;
+import com.important.AnnotationDrive.condition.MyImportSelector;
 import com.important.AnnotationDrive.condition.WindowsCondition;
 
 //类中组件统一设置。满足当前条件，这个类中配置的所有bean注册才能生效；
 //@Conditional({WindowsCondition.class})
 @Configuration
+@Import({Color.class,Red.class,MyImportSelector.class,MyImportBeanDefinitionRegistrar.class})
 public class MainConfig2 {
 
 	// 默认是单例的
@@ -63,5 +70,9 @@ public class MainConfig2 {
 	 * 		2）、要获取工厂Bean本身，我们需要给id前面加一个&
 	 * 			&colorFactoryBean
 	 */
+	@Bean
+	public ColorFactoryBean colorFactoryBean() {
+		return new ColorFactoryBean();
+	}
 	
 }

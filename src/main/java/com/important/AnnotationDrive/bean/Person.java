@@ -1,4 +1,4 @@
-package com.important.AnnotationDrive.Configuration;
+package com.important.AnnotationDrive.bean;
 
 public class Person {
 

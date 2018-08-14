@@ -3,10 +3,11 @@ package com.important.AnnotationDrive.Config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
+
+import com.important.AnnotationDrive.bean.Person;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
-
-import com.important.AnnotationDrive.Configuration.Person;
 
 // 指定这是一个配置类
 @Configuration

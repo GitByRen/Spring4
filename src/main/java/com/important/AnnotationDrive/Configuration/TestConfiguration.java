@@ -8,16 +8,31 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.important.AnnotationDrive.Config.MainConfig;
 import com.important.AnnotationDrive.Config.MainConfig2;
+import com.important.AnnotationDrive.bean.Person;
 
 public class TestConfiguration {
 
+	@Test
+	public void test4() {
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
+		printAppByName(applicationContext);
+		System.out.println("******************");
+		// 工厂Bean获取的是调用getObject创建的对象
+		Object bean = applicationContext.getBean("colorFactoryBean");
+		System.out.println(bean.getClass());
+		
+		// 获取工厂Bean本身
+		Object factoryBean = applicationContext.getBean("&colorFactoryBean");
+		System.out.println(factoryBean.getClass());
+		
+	}
+	
 	/**
 	 * @Conditional
 	 */
 	@Test
 	public void test3() {
 		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
-		printAppByType(applicationContext, Person.class);
 		Map<String, Person> persons = applicationContext.getBeansOfType(Person.class);
 		System.out.println(persons);
 	}
@@ -28,8 +43,8 @@ public class TestConfiguration {
 	@Test
 	public void test2() {
 		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig2.class);
-		Person bean = applicationContext.getBean(Person.class);
-		Person bean1 = applicationContext.getBean(Person.class);
+		Person bean = (Person) applicationContext.getBean("person");
+		Person bean1 = (Person) applicationContext.getBean("person");
 		System.out.println(bean == bean1);
 	}
 
@@ -42,18 +57,8 @@ public class TestConfiguration {
 		Person bean = applicationContext.getBean(Person.class);
 		System.out.println(bean);
 
-		// 获取Person类的bean
-		printAppByType(applicationContext, Person.class);
-
 		// 获取IOC中的bean
 		printAppByName(applicationContext);
-	}
-	
-	public void printAppByType(ApplicationContext ac, Class<?> clazz) {
-		String[] beanNamesForType = ac.getBeanNamesForType(clazz);
-		for (String name : beanNamesForType) {
-			System.out.println(name);
-		}
 	}
 	
 	public void printAppByName(ApplicationContext ac) {

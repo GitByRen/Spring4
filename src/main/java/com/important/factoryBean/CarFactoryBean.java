@@ -27,7 +27,6 @@ public class CarFactoryBean implements FactoryBean<Car>{
 
 	@Override
 	public boolean isSingleton() {
-		
 		return false;
 	}
 
