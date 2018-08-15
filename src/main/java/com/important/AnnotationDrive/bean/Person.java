@@ -1,8 +1,13 @@
 package com.important.AnnotationDrive.bean;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Person {
 
+	@Value("张三")
 	private String name;
+	// SPEL
+	@Value("#{18-2}")
 	private Integer age;
 
 	public String getName() {
