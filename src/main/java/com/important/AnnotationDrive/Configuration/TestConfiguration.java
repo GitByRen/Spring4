@@ -29,6 +29,8 @@ public class TestConfiguration {
 	
 	/**
 	 * @Conditional
+	 * 
+	 * -Dos.name=linux
 	 */
 	@Test
 	public void test3() {

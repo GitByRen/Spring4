@@ -1,14 +1,20 @@
 package com.important.AnnotationDrive.Configuration;
 
+import javax.sql.DataSource;
+
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.important.AnnotationDrive.Annotation.TestService;
 import com.important.AnnotationDrive.Config.MainConfigOfAutowire;
 import com.important.AnnotationDrive.Config.MainConfigOfLifeCycle;
+import com.important.AnnotationDrive.Config.MainConfigOfProfile;
 import com.important.AnnotationDrive.Config.MainConfigOfPropertyValue;
 import com.important.AnnotationDrive.bean.Boss;
+import com.important.AnnotationDrive.bean.Car;
+import com.important.AnnotationDrive.bean.Color;
 import com.important.AnnotationDrive.bean.Person;
+import com.important.AnnotationDrive.bean.Red;
 
 public class TestConfiguration2 {
 
@@ -34,15 +40,47 @@ public class TestConfiguration2 {
 	}
 	
 	/**
-	 * @Autowired,@Qualifier,@Primary
+	 * @Autowired,@Qualifier,@Primary,Aware
 	 */
 	@Test
 	public void test3() {
-		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MainConfigOfAutowire.class);
-		TestService bean = ac.getBean(TestService.class);
-		System.out.println(bean);
-		
-		Boss boss = ac.getBean(Boss.class);
-		System.out.println(boss);
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MainConfigOfAutowire.class);
+        TestService bean = ac.getBean(TestService.class);
+        System.out.println(bean);
+
+        Boss boss = ac.getBean(Boss.class);
+        System.out.println(boss);
+        Car car = ac.getBean(Car.class);
+        System.out.println(car);
+        Color color = ac.getBean(Color.class);
+        System.out.println(color);
+        Red red = ac.getBean(Red.class);
+        System.out.println(red);
+        ac.close();
+	}
+	
+	/**
+	 * @Profile
+	 * 
+	 * 怎样使该注解起作用：
+	 * 1、使用命令行参数 -Dspring.profiles.active=test
+	 * 2、代码方式
+	 */
+	@Test
+	public void test4() {
+	    AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext();
+	    // 设置需要激活的环境
+	    ac.getEnvironment().setActiveProfiles("test","prod");
+	    // 注册主配置类
+	    ac.register(MainConfigOfProfile.class);
+	    // 启动刷新
+	    ac.refresh();
+	    
+	    String[] namesForType = ac.getBeanNamesForType(DataSource.class);
+	    for (String string : namesForType) {
+            System.out.println(string);
+        }
+	    
+	    ac.close();
 	}
 }
