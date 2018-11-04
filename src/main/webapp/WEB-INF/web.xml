@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	
-	<!-- needed for ContextLoaderListener -->
+	<!-- 配置Spring配置文件的名称和位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring-mvc.xml</param-value>
 	</context-param>
 
-	<!-- Bootstraps the root web application context before servlet initialization -->
+	<!-- 启动IOC容器的ServletContextListener -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

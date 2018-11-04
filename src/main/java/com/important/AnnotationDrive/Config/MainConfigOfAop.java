@@ -9,8 +9,7 @@ import com.important.AnnotationDrive.aop.MathCalculator;
 
 /**
  * @EnableAspectJAutoProxy:开启基于注解的aop模式[<aop:aspectj-autoproxy></aop:aspectj-autoproxy>]
- * 
- * 																						JoinPoint一定要出现在参数表的第一位
+ * JoinPoint一定要出现在参数表的第一位
  */
 @EnableAspectJAutoProxy
 @Configuration
