@@ -4,8 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 /**
- * 后置处理器
- *
+ * 后置处理器：若一个bean和一个后置处理器进行关联，则会自动调用before和after方法
  */
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
@@ -21,9 +20,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 		System.out.println("postProcessAfterInitialization:" + bean + ", " + beanName);
-		Car car = new Car();
-		car.setBrand("aaa");
-		return car;
+		return bean;
 	}
 
 }
