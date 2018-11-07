@@ -10,7 +10,7 @@
 		<param-value>classpath:spring-mvc.xml</param-value>
 	</context-param>
 
-	<!-- 启动IOC容器的ServletContextListener -->
+	<!-- 启动IOC容器的ServletContextListener：设置web应用上下文、加载配置信息 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
