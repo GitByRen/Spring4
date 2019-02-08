@@ -5,7 +5,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
-import org.springframework.context.annotation.Primary;
 
 import com.important.AnnotationDrive.Annotation.TestDao;
 import com.important.AnnotationDrive.bean.Car;
@@ -50,9 +49,9 @@ import com.important.AnnotationDrive.bean.MyBeanPostProcessor;
 						MyBeanPostProcessor.class, Cat.class }) })
 public class MainConfigOfAutowire {
 
-	@Primary
+//	@Primary
 	@Bean
-	public TestDao testDao2() {
+	public TestDao testDao() {
 		TestDao bookDao = new TestDao();
 		bookDao.setLable("2");
 		return bookDao;

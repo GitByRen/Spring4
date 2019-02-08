@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="car" class="com.important.cycle.Car" init-method="init"
-		destroy-method="destroy">
+		destroy-method="customerDestroy">
 		<property name="brand" value="Audi"></property>
 	</bean>
 

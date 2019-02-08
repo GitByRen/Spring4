@@ -4,13 +4,14 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Car implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean{
+public class Car implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
 	public Car() {
 		System.out.println("Car's Constructor...");
@@ -57,15 +58,15 @@ public class Car implements BeanNameAware, BeanFactoryAware, ApplicationContextA
 		System.out.println("init...");
 	}
 
-	//implements DisposableBean，释放bean，不推荐，因为实现要实现接口
-//	@Override
-//	public void destroy() throws Exception {
-//		
-//	}
-	
+	// implements DisposableBean，释放bean，不推荐，因为实现要实现接口
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("DisposableBean destroy");
+	}
+
 	// 自定义销毁方法
-	public void destroy() {
+	public void customerDestroy() {
 		System.out.println("destroy...");
 	}
-	
+
 }

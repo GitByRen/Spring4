@@ -17,7 +17,7 @@ import com.important.AnnotationDrive.condition.WindowsCondition;
 //类中组件统一设置。满足当前条件，这个类中配置的所有bean注册才能生效；
 //@Conditional({WindowsCondition.class})
 @Configuration
-@Import({Color.class,Red.class,MyImportSelector.class,MyImportBeanDefinitionRegistrar.class})
+@Import({ Color.class, Red.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class })
 public class MainConfig2 {
 
 	// 默认是单例的

@@ -8,7 +8,9 @@ public class FactoryBeanMain {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans-beanfactory.xml");
 		Car car = (Car) ctx.getBean("car");
-		System.out.println(car);
+		Car car1 = (Car) ctx.getBean("car");
+		// 测试FactoryBean的isSingleton
+		System.out.println(car == car1);
 	}
 	
 }

@@ -29,7 +29,7 @@ public class SpringTransactionTest {
 	// 测试注解式事务
 	@Test
 	public void testBookShopService() {
-		bookShopService.purchase("AA", "1101");
+		bookShopService.purchase("AA", "1102");
 	}
 
 	@Test

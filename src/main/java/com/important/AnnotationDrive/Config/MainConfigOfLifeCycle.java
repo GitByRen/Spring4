@@ -34,7 +34,7 @@ public class MainConfigOfLifeCycle {
 	 *   多实例：容器不会管理bean
 	 */
 //	@Scope("prototype")
-	@Bean(initMethod="init",destroyMethod="destory")
+	@Bean(initMethod = "init", destroyMethod = "destory")
 	public Car car() {
 		return new Car();
 	}

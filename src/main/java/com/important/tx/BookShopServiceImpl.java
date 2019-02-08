@@ -27,7 +27,7 @@ public class BookShopServiceImpl implements BookShopService {
 //			isolation=Isolation.READ_COMMITTED,
 //			readOnly=false,
 //			timeout=3)
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public void purchase(String username, String isbn) {
 		
@@ -43,6 +43,10 @@ public class BookShopServiceImpl implements BookShopService {
 		
 		//3. 更新用户余额
 		bookShopDao.updateUserAccount(username, price);
+		
+		// 非运行时异常不会回滚，加上下面这句话数据还是能更新成功，所以在@Transactional
+		// 中指定(rollbackFor = Exception.class)
+//		throw new SQLException("数据库异常");
 	}
 
 }
