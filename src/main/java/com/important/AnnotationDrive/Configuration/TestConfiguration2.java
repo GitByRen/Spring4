@@ -6,10 +6,12 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.important.AnnotationDrive.Annotation.TestService;
+import com.important.AnnotationDrive.Config.MainConfigOfAop;
 import com.important.AnnotationDrive.Config.MainConfigOfAutowire;
 import com.important.AnnotationDrive.Config.MainConfigOfLifeCycle;
 import com.important.AnnotationDrive.Config.MainConfigOfProfile;
 import com.important.AnnotationDrive.Config.MainConfigOfPropertyValue;
+import com.important.AnnotationDrive.aop.MathCalculator;
 import com.important.AnnotationDrive.bean.Boss;
 import com.important.AnnotationDrive.bean.Car;
 import com.important.AnnotationDrive.bean.Color;
@@ -82,6 +84,17 @@ public class TestConfiguration2 {
         }
 	    
 	    ac.close();
+	}
+	
+	/**
+	 * aop
+	 */
+	@Test
+	public void test5() {
+		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MainConfigOfAop.class);
+		MathCalculator bean = ac.getBean(MathCalculator.class);
+        System.out.println(bean.div(3, 4));
+        ac.close();
 	}
 	
 }

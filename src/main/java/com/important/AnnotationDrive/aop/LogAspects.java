@@ -3,9 +3,11 @@ package com.important.AnnotationDrive.aop;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -24,7 +26,7 @@ public class LogAspects {
 	// 抽取公共的切入点表达式
 	// 1、本类引用
 	// 2、其他的切面引用
-	@Pointcut("execution(public int com.atguigu.aop.MathCalculator.*(..))")
+	@Pointcut("execution(public int com.important.AnnotationDrive.aop.MathCalculator.*(..))")
 	public void pointCut() {
 	};
 
@@ -35,7 +37,7 @@ public class LogAspects {
 		System.out.println("" + joinPoint.getSignature().getName() + "运行。。。@Before:参数列表是：{" + Arrays.asList(args) + "}");
 	}
 
-	@After("com.atguigu.aop.LogAspects.pointCut()")
+	@After("pointCut()")
 	public void logEnd(JoinPoint joinPoint) {
 		System.out.println("" + joinPoint.getSignature().getName() + "结束。。。@After");
 	}
@@ -51,4 +53,20 @@ public class LogAspects {
 		System.out.println("" + joinPoint.getSignature().getName() + "异常。。。异常信息：{" + exception + "}");
 	}
 
+	@Around(value = "pointCut()")
+	public Object logAround(ProceedingJoinPoint pjd) {
+		System.out.println("***************************************");
+		String methodName = pjd.getSignature().getName();
+		System.out.println("The method " + methodName + " begins with " + Arrays.asList(pjd.getArgs()));
+		Object proceed = null;
+		try {
+			proceed = pjd.proceed();
+			
+			// 返回通知
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+		System.out.println("========================================");
+		return proceed;
+	}
 }
