@@ -4,8 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-import com.important.AnnotationDrive.aop.LogAspects;
 import com.important.AnnotationDrive.aop.MathCalculator;
+import com.important.AnnotationDrive.aop.NoRepeatSubmitAspect;
 
 /**
  * @EnableAspectJAutoProxy:开启基于注解的aop模式[<aop:aspectj-autoproxy></aop:aspectj-autoproxy>]
@@ -22,9 +22,14 @@ public class MainConfigOfAop {
 	}
 
 	// 切面类加入到容器中
+//	@Bean
+//	public LogAspects logAspects() {
+//		return new LogAspects();
+//	}
+	
 	@Bean
-	public LogAspects logAspects() {
-		return new LogAspects();
+	public NoRepeatSubmitAspect noRepeatSubmitAspect() {
+		return new NoRepeatSubmitAspect();
 	}
 
 }

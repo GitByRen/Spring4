@@ -97,4 +97,15 @@ public class TestConfiguration2 {
         ac.close();
 	}
 	
+	/**
+	 * aop for annotation
+	 */
+	@Test
+	public void test6() {
+		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MainConfigOfAop.class);
+		MathCalculator bean = ac.getBean(MathCalculator.class);
+        System.out.println(bean.div(2, 3));
+        ac.close();
+	}
+	
 }
