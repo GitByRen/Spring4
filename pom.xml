@@ -17,7 +17,7 @@
 		<com.important.springjdbc>4.3.18.RELEASE</com.important.springjdbc>
 		<com.important.mysql>5.1.46</com.important.mysql>
 		<com.important.springweb>4.3.18.RELEASE</com.important.springweb>
-		<com.important.springwebmvc>4.3.18.RELEASE</com.important.springwebmvc>
+		<com.important.springwebmvc>5.2.20.RELEASE</com.important.springwebmvc>
 	</properties>
 
 	<dependencies>
